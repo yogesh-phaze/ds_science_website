@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4f6dcb, #77b3ff);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #222;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            min-height: 650px;
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.16);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+        }
+
+        .left-section {
+            background: linear-gradient(180deg, #1f3b8f 0%, #4776e6 100%);
+            color: #fff;
+            padding: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .left-section .content {
+            max-width: 520px;
+        }
+
+        .left-section h1 {
+            font-size: 3rem;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .left-section p {
+            font-size: 1.05rem;
+            opacity: 0.88;
+            margin-bottom: 32px;
+            max-width: 420px;
+        }
+
+        .illustration {
+            margin-top: 24px;
+        }
+
+        .illustration img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 18px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+        }
+
+        .right-section {
+            background: #f7f9ff;
+            padding: 56px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .login-box h1 {
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+
+        .login-box p {
+            color: #5f6f8a;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .input-group,
+        .mobile-group {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #d9e2ef;
+            border-radius: 14px;
+            padding: 12px 18px;
+            margin-bottom: 20px;
+            transition: border-color 0.2s ease;
+        }
+
+        .input-group:focus-within,
+        .mobile-group:focus-within {
+            border-color: #4f6dcb;
+            box-shadow: 0 0 0 4px rgba(79, 109, 203, 0.12);
+        }
+
+        .input-group input,
+        .mobile-group input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 1rem;
+            color: #283044;
+            background: transparent;
+        }
+
+        .country-code {
+            color: #4f6dcb;
+            font-weight: 700;
+            margin-right: 16px;
+        }
+
+        #checkMark {
+            color: #2bb673;
+            font-size: 1.1rem;
+            margin-left: 12px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            background: #3e5cc1;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        button:disabled {
+            background: #9badde;
+            cursor: not-allowed;
+        }
+
+        button:not(:disabled):hover {
+            background: #2f4ead;
+            transform: translateY(-1px);
+        }
+
+        .terms {
+            color: #5f6f8a;
+            margin-top: 24px;
+            font-size: 0.95rem;
+        }
+
+        .terms a {
+            color: #3e5cc1;
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .left-section,
+            .right-section {
+                padding: 36px 28px;
+            }
+
+            .left-section h1 {
+                font-size: 2.4rem;
+            }
+
+            .illustration img {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 620px) {
+            body {
+                padding: 24px 0;
+            }
+
+            .container {
+                border-radius: 20px;
+            }
+
+            .left-section,
+            .right-section {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Left Section -->
+    <div class="left-section">
+        <div class="content">
+            <h1>The future of education is here</h1>
+            <p>With an all in one platform for the teaching world</p>
+
+            <div class="illustration">
+                <img src="./images/Screenshot 2026-06-23 222201.png" alt="Education">
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+        <div class="login-box">
+
+            <h1>Login to your account</h1>
+            <p>Please enter the org code and your mobile number to continue</p>
+
+            <form id="loginForm">
+
+                <label>Org Code</label>
+                <div class="input-group">
+                    <input type="text" id="orgCode" placeholder="Enter Org Code" />
+                    <span id="checkMark">✔</span>
+                </div>
+
+                <label>Your Mobile Number</label>
+                <div class="mobile-group">
+                    <span class="country-code">+91</span>
+                    <input type="tel" id="mobile" placeholder="Enter your mobile number" />
+                </div>
+
+                <button type="submit" id="btn" disabled>
+                    Proceed Securely
+                </button>
+
+            </form>
+
+            <p class="terms">
+                By continuing, you agree to the
+                <a href="#">terms and conditions</a>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const orgInput = document.getElementById('orgCode');
+        const mobileInput = document.getElementById('mobile');
+        const submitBtn = document.getElementById('btn');
+        const checkMark = document.getElementById('checkMark');
+        const form = document.getElementById('loginForm');
+
+        function isValidOrg() {
+            return orgInput.value.trim().length >= 3;
+        }
+
+        function isValidMobile() {
+            const digits = mobileInput.value.replace(/\D/g, '');
+            return /^\d{10}$/.test(digits);
+        }
+
+        function updateFormState() {
+            const validOrg = isValidOrg();
+            const validMobile = isValidMobile();
+            submitBtn.disabled = !(validOrg && validMobile);
+            checkMark.style.opacity = validOrg ? '1' : '0';
+        }
+
+        orgInput.addEventListener('input', updateFormState);
+        mobileInput.addEventListener('input', updateFormState);
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (submitBtn.disabled) return;
+            const orgCode = orgInput.value.trim();
+            const mobile = mobileInput.value.replace(/\D/g, '');
+            console.log('Login attempt:', { orgCode, mobile });
+            alert('Proceeding securely with Org Code: ' + orgCode);
+        });
+
+        updateFormState();
+    });
+</script>
+
+</body>
+</html>
